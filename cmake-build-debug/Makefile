@@ -177,6 +177,33 @@ libft/ft_putstr.c.s:
 	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_putstr.c.s
 .PHONY : libft/ft_putstr.c.s
 
+libft/ft_strjoin.o: libft/ft_strjoin.c.o
+
+.PHONY : libft/ft_strjoin.o
+
+# target to build an object file
+libft/ft_strjoin.c.o:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strjoin.c.o
+.PHONY : libft/ft_strjoin.c.o
+
+libft/ft_strjoin.i: libft/ft_strjoin.c.i
+
+.PHONY : libft/ft_strjoin.i
+
+# target to preprocess a source file
+libft/ft_strjoin.c.i:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strjoin.c.i
+.PHONY : libft/ft_strjoin.c.i
+
+libft/ft_strjoin.s: libft/ft_strjoin.c.s
+
+.PHONY : libft/ft_strjoin.s
+
+# target to generate assembly for a file
+libft/ft_strjoin.c.s:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strjoin.c.s
+.PHONY : libft/ft_strjoin.c.s
+
 libft/ft_strlen.o: libft/ft_strlen.c.o
 
 .PHONY : libft/ft_strlen.o
@@ -203,6 +230,33 @@ libft/ft_strlen.s: libft/ft_strlen.c.s
 libft/ft_strlen.c.s:
 	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strlen.c.s
 .PHONY : libft/ft_strlen.c.s
+
+libft/ft_strnew.o: libft/ft_strnew.c.o
+
+.PHONY : libft/ft_strnew.o
+
+# target to build an object file
+libft/ft_strnew.c.o:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strnew.c.o
+.PHONY : libft/ft_strnew.c.o
+
+libft/ft_strnew.i: libft/ft_strnew.c.i
+
+.PHONY : libft/ft_strnew.i
+
+# target to preprocess a source file
+libft/ft_strnew.c.i:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strnew.c.i
+.PHONY : libft/ft_strnew.c.i
+
+libft/ft_strnew.s: libft/ft_strnew.c.s
+
+.PHONY : libft/ft_strnew.s
+
+# target to generate assembly for a file
+libft/ft_strnew.c.s:
+	$(MAKE) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/libft/ft_strnew.c.s
+.PHONY : libft/ft_strnew.c.s
 
 main.o: main.c.o
 
@@ -246,9 +300,15 @@ help:
 	@echo "... libft/ft_putstr.o"
 	@echo "... libft/ft_putstr.i"
 	@echo "... libft/ft_putstr.s"
+	@echo "... libft/ft_strjoin.o"
+	@echo "... libft/ft_strjoin.i"
+	@echo "... libft/ft_strjoin.s"
 	@echo "... libft/ft_strlen.o"
 	@echo "... libft/ft_strlen.i"
 	@echo "... libft/ft_strlen.s"
+	@echo "... libft/ft_strnew.o"
+	@echo "... libft/ft_strnew.i"
+	@echo "... libft/ft_strnew.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

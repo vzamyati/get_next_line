@@ -89,7 +89,13 @@
 		<Unit filename="/Users/vzamyati/CLionProjects/gnl/libft/ft_putstr.c">
 			<Option target="gnl"/>
 		</Unit>
+		<Unit filename="/Users/vzamyati/CLionProjects/gnl/libft/ft_strjoin.c">
+			<Option target="gnl"/>
+		</Unit>
 		<Unit filename="/Users/vzamyati/CLionProjects/gnl/libft/ft_strlen.c">
+			<Option target="gnl"/>
+		</Unit>
+		<Unit filename="/Users/vzamyati/CLionProjects/gnl/libft/ft_strnew.c">
 			<Option target="gnl"/>
 		</Unit>
 		<Unit filename="/Users/vzamyati/CLionProjects/gnl/main.c">

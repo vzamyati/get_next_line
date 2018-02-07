@@ -6,7 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/vzamyati/CLionProjects/gnl/get_next_line.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/get_next_line.c.o"
   "/Users/vzamyati/CLionProjects/gnl/libft/ft_putstr.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/libft/ft_putstr.c.o"
+  "/Users/vzamyati/CLionProjects/gnl/libft/ft_strjoin.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/libft/ft_strjoin.c.o"
   "/Users/vzamyati/CLionProjects/gnl/libft/ft_strlen.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/libft/ft_strlen.c.o"
+  "/Users/vzamyati/CLionProjects/gnl/libft/ft_strnew.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/libft/ft_strnew.c.o"
   "/Users/vzamyati/CLionProjects/gnl/main.c" "/Users/vzamyati/CLionProjects/gnl/cmake-build-debug/CMakeFiles/gnl.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /Users/vzamyati/CLionProjects/gnl/get_next_line.c
+printf.h
+-
 get_next_line.h
 /Users/vzamyati/CLionProjects/gnl/get_next_line.h
 
@@ -26,7 +28,15 @@ libft.h
 unistd.h
 -
 
+/Users/vzamyati/CLionProjects/gnl/libft/ft_strjoin.c
+libft.h
+/Users/vzamyati/CLionProjects/gnl/libft/libft.h
+
 /Users/vzamyati/CLionProjects/gnl/libft/ft_strlen.c
+libft.h
+/Users/vzamyati/CLionProjects/gnl/libft/libft.h
+
+/Users/vzamyati/CLionProjects/gnl/libft/ft_strnew.c
 libft.h
 /Users/vzamyati/CLionProjects/gnl/libft/libft.h
 

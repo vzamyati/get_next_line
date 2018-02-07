@@ -8,8 +8,14 @@ CMakeFiles/gnl.dir/get_next_line.c.o: ../libft/libft.h
 CMakeFiles/gnl.dir/libft/ft_putstr.c.o: ../libft/ft_putstr.c
 CMakeFiles/gnl.dir/libft/ft_putstr.c.o: ../libft/libft.h
 
+CMakeFiles/gnl.dir/libft/ft_strjoin.c.o: ../libft/ft_strjoin.c
+CMakeFiles/gnl.dir/libft/ft_strjoin.c.o: ../libft/libft.h
+
 CMakeFiles/gnl.dir/libft/ft_strlen.c.o: ../libft/ft_strlen.c
 CMakeFiles/gnl.dir/libft/ft_strlen.c.o: ../libft/libft.h
+
+CMakeFiles/gnl.dir/libft/ft_strnew.c.o: ../libft/ft_strnew.c
+CMakeFiles/gnl.dir/libft/ft_strnew.c.o: ../libft/libft.h
 
 CMakeFiles/gnl.dir/main.c.o: ../get_next_line.h
 CMakeFiles/gnl.dir/main.c.o: ../libft/libft.h
