@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzamyati <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/10 18:50:34 by vzamyati          #+#    #+#             */
-/*   Updated: 2018/02/10 18:50:38 by vzamyati         ###   ########.fr       */
+/*   Created: 2017/11/13 17:19:10 by vzamyati          #+#    #+#             */
+/*   Updated: 2017/11/13 17:19:13 by vzamyati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_GET_NEXT_LINE_H
-# define GNL_GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-
-
-# define BUFF_SIZE 3
-
-typedef struct		s_gnl
+void				*ft_memchr(const void *s, int c, size_t n)
 {
-    char            *str;
-    int             fd;
-    struct s_gnl   *next;
-}					t_gnl;
+	unsigned char	*s_tmp;
+	unsigned char	c_tmp;
+	size_t			i;
 
-int     get_next_line(const int fd, char **line);
-
-#endif
+	s_tmp = (unsigned char *)s;
+	c_tmp = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (s_tmp[i] != c_tmp)
+			i++;
+		else
+			return (s_tmp + i);
+	}
+	return (NULL);
+}

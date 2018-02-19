@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzamyati <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/10 18:50:34 by vzamyati          #+#    #+#             */
-/*   Updated: 2018/02/10 18:50:38 by vzamyati         ###   ########.fr       */
+/*   Created: 2017/11/15 18:58:06 by vzamyati          #+#    #+#             */
+/*   Updated: 2017/11/15 18:58:07 by vzamyati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_GET_NEXT_LINE_H
-# define GNL_GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-
-
-# define BUFF_SIZE 3
-
-typedef struct		s_gnl
+char	*ft_strchr(const char *s, int c)
 {
-    char            *str;
-    int             fd;
-    struct s_gnl   *next;
-}					t_gnl;
+	int i;
 
-int     get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c == '\0')
+		return ((char *)s + i);
+	return (NULL);
+}
