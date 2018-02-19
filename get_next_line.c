@@ -13,24 +13,31 @@
 #include <printf.h>
 #include "get_next_line.h"
 
-int                 get_next_line(const int fd, char **line)
+static int          searching(const int fd, char **line, char *buff)
 {
     static char     *tmp;
-    char            *ptr;
+    ssize_t         rd;
+
+    tmp = ft_strnew(1);
+    if (tmp != NULL)
+        *line = ft_strdup(buff);
+    while (!(ft_strchr(buff, '\n')) && (rd = read(fd, buff, BUFF_SIZE) > 0))
+    {
+        tmp = ft_strjoin(tmp, buff);
+        ft_bzero(buff, ft_strlen(buff));
+    }
+    *line = ft_strsub(tmp, 0, ft_strlen(tmp)); // search '\n' ;
+    if (ft_strlen(tmp) == 0)
+        return (0);
+    return (1);
+}
+
+int                 get_next_line(const int fd, char **line)
+{
     char            *buff;
-    int             rd;
 
     buff = ft_strnew(BUFF_SIZE);
-    if (!line || fd < 0 || BUFF_SIZE < 1)
-        return (-1);
-    *line = ft_strnew(1);
-    while ((tmp = ft_strchr(*line, '\n')) == NULL
-           && (rd = read(fd, buff, BUFF_SIZE) > 0))
-    {
-        ptr = *line;
-        buff[rd] = '\0';
-        *line = ft_strjoin(*line, buff);
-        free(ptr);
-    }
-	return 1;
+    if (!(line == NULL || fd < 0))
+        return (searching(fd, &*line, buff));
+    return (-1);
 }
