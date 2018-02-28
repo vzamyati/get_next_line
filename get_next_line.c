@@ -13,46 +13,64 @@
 #include <printf.h>
 #include "get_next_line.h"
 
-static int      reading(const int fd, char **line, char *buff)
+
+//static int  writing(const int fd, char **line, char *str)
+//{
+//
+//}
+
+
+static int  reading(const int fd, char **line)
 {
-	static char     *str;
+	static char *str = NULL;
+	char *buff;
+	ssize_t ret;
 	char *tmp = NULL;
-	char *next_line = NULL;
-	char *new_line = NULL;
-	int rd;
+	char *next_line;
 
 	if (!str)
 		str = ft_strnew(0);
-	while ((rd = read(fd, buff, BUFF_SIZE) > 0))
-	{
-		tmp = ft_strjoin(str, buff);
-		free (str);
-		ft_strclr(buff);
-		str = ft_strdup(tmp);
-		free (tmp);
-		if (next_line = ft_strchr(str, '\n'))
-			break ;
-	}
-	if (next_line)
+	if (str && (next_line = ft_strchr(str, 10)))
 	{
 		*line = ft_strsub(str, 0, next_line - str);
-		str = ft_strdup(next_line + 1);
+		str = ft_strdup(++next_line);
+	}
+	buff = ft_strnew(BUFF_SIZE);
+	while (!(ft_strchr(str, '\n')) && (ret = read(fd, buff, BUFF_SIZE)) > 0)
+	{
+		buff[ret] = '\0';
+		tmp = ft_strjoin((str), buff);
+		ft_strclr(buff);
+		str = ft_strdup(tmp);
+//		next_line = ft_strchr(str, 10);
+//		if (next_line)
+//			break ;
+	}
+	if (ret < 0)
+		return (-1);
+	if (*str)
+	{
+		if ((next_line = ft_strchr(str, '\n')))
+		{
+			*line = ft_strsub(str, 0, next_line - str);
+			tmp = str;
+			str = ft_strdup(++next_line);
+			free (tmp);
+			ft_strclr(str);
+		}
+		else
+			*line = ft_strdup(str);
 		return (1);
 	}
-	*line = ft_strdup(str);
-	if ()
+//	if ((next_line == NULL) && ((ft_strlen(str)) == 0))
+//		return (0);
 	return (0);
+//	return (writing(fd, &*line, str));
 }
 
 int     get_next_line(const int fd, char **line)
 {
-	char *buff;
-
-	buff = ft_strnew(BUFF_SIZE);
-	if (fd < 0 || (read(fd, buff, 0)) < 0 || line == NULL)
+	if (fd < 0 || line == NULL)
 		return (-1);
-	else
-		return (reading(fd, line, buff));
+	return (reading(fd, &*line));
 }
-
-//		 str = (ft_strchr(buff,'\n') + 1);
