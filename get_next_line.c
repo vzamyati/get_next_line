@@ -14,11 +14,6 @@
 #include "get_next_line.h"
 
 
-//static int  writing(const int fd, char **line, char *str)
-//{
-//
-//}
-
 
 static int  reading(const int fd, char **line)
 {
@@ -42,9 +37,6 @@ static int  reading(const int fd, char **line)
 		tmp = ft_strjoin((str), buff);
 		ft_strclr(buff);
 		str = ft_strdup(tmp);
-//		next_line = ft_strchr(str, 10);
-//		if (next_line)
-//			break ;
 	}
 	if (ret < 0)
 		return (-1);
@@ -56,16 +48,17 @@ static int  reading(const int fd, char **line)
 			tmp = str;
 			str = ft_strdup(++next_line);
 			free (tmp);
+		}
+		else if (!next_line && *str)
+		{
+			*line = ft_strdup(str);
 			ft_strclr(str);
 		}
 		else
 			*line = ft_strdup(str);
 		return (1);
 	}
-//	if ((next_line == NULL) && ((ft_strlen(str)) == 0))
-//		return (0);
 	return (0);
-//	return (writing(fd, &*line, str));
 }
 
 int     get_next_line(const int fd, char **line)
