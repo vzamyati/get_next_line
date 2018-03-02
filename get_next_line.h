@@ -21,6 +21,14 @@
 
 # define BUFF_SIZE 5
 
+typedef struct      s_mygnl
+{
+	int             fd;
+	char            *str;
+	char            *next_line;
+	struct s_mygnl  *next;
+}                   t_mygnl;
+
 int     get_next_line(const int fd, char **line);
 
 #endif

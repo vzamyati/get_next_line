@@ -13,57 +13,74 @@
 #include <printf.h>
 #include "get_next_line.h"
 
-
-
-static int  reading(const int fd, char **line)
+static int  writing(t_mygnl *tmp, char **line)
 {
-	static char *str = NULL;
-	char *buff;
-	ssize_t ret;
-	char *tmp = NULL;
-	char *next_line;
+	char *temp = NULL;
 
-	if (!str)
-		str = ft_strnew(0);
-	if (str && (next_line = ft_strchr(str, 10)))
+	if (tmp->str)
 	{
-		*line = ft_strsub(str, 0, next_line - str);
-		str = ft_strdup(++next_line);
-	}
-	buff = ft_strnew(BUFF_SIZE);
-	while (!(ft_strchr(str, '\n')) && (ret = read(fd, buff, BUFF_SIZE)) > 0)
-	{
-		buff[ret] = '\0';
-		tmp = ft_strjoin((str), buff);
-		ft_strclr(buff);
-		str = ft_strdup(tmp);
-	}
-	if (ret < 0)
-		return (-1);
-	if (*str)
-	{
-		if ((next_line = ft_strchr(str, '\n')))
+		if ((tmp->next_line = ft_strchr(tmp->str, '\n')))
 		{
-			*line = ft_strsub(str, 0, next_line - str);
-			tmp = str;
-			str = ft_strdup(++next_line);
-			free (tmp);
+			*line = ft_strsub(tmp->str, 0, tmp->next_line - tmp->str);
+			temp = tmp->str;
+			tmp->str = ft_strdup(++tmp->next_line);
+			free (temp);
 		}
-		else if (!next_line && *str)
+		else if (!tmp->next_line && *tmp->str)
 		{
-			*line = ft_strdup(str);
-			ft_strclr(str);
+			*line = ft_strdup(tmp->str);
+			ft_strdel(&tmp->str);
 		}
 		else
-			*line = ft_strdup(str);
+			*line = ft_strdup(tmp->str);
 		return (1);
 	}
 	return (0);
 }
 
+
+static int  reading(t_mygnl *tmp, char **line)
+{
+	char *buff;
+	ssize_t ret;
+	char *temp = NULL;
+
+	buff = ft_strnew(BUFF_SIZE);
+	while ((ret = read(tmp->fd, buff, BUFF_SIZE)) > 0)
+	{
+		buff[ret] = '\0';
+		temp = ft_strjoin((tmp->str), buff);
+		ft_strclr(buff);
+		tmp->str = ft_strdup(temp);
+		tmp->next_line = ft_strchr(tmp->str, '\n');
+		if (tmp->next_line)
+			break ;
+	}
+	if (ret < 0)
+		return (-1);
+	return (writing(tmp, line));
+}
+
 int     get_next_line(const int fd, char **line)
 {
-	if (fd < 0 || line == NULL)
+	static t_mygnl  *box = NULL;
+	t_mygnl         *tmp;
+
+	tmp = box;
+	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
-	return (reading(fd, &*line));
+	while (tmp != NULL && (box->fd != fd))
+		tmp = tmp->next;
+	if (tmp == NULL)
+	{
+		tmp = (t_mygnl*)malloc(sizeof(t_mygnl));
+		tmp->fd = fd;
+		tmp->str = ft_strnew(0);
+		tmp->next_line = NULL;
+		tmp->next = box;
+		box = tmp;
+	}
+	return (reading(tmp, line));
 }
+
+//*line = ft_strchr(mem[fd], '\n') ? ft_strsub(mem[fd], 0, ft_strchr(mem[fd], '\n') - mem[fd] + 1) : ft_strdup(mem[fd]);
