@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 
-# define BUFF_SIZE 5
+# define BUFF_SIZE 9999
 
 typedef struct      s_mygnl
 {

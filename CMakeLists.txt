@@ -15,4 +15,14 @@ add_executable(gnl main.c
         libft/ft_bzero.c
         libft/ft_memalloc.c
         libft/ft_strsub.c
-        libft/ft_memset.c)
+        libft/ft_memset.c
+        libft/ft_strcat.c
+        libft/ft_strclr.c
+        libft/ft_strdel.c
+        libft/ft_putendl.c
+        libft/ft_putnbr.c
+        libft/ft_putchar.c
+        libft/ft_atoi.c
+        libft/ft_putendl_fd.c
+        libft/ft_putstr_fd.c
+        )
